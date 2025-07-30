@@ -1,0 +1,94 @@
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\usetheme{SimpleDarkBlue}
+
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{Real Time Underwater Image Restoration
+using Co-Operational Regressor Networks}
+\subtitle{CoRe-Nets}
+
+\author{Aravind Ashokan, Harishanker S Nair, Pradyumn R Pai, Pranav P S}
+
+\institute
+{
+    Department of Computer Science and Engineering \\
+    Govt. Model Engineering College
+}
+\date{July 17, 2025} % Date, can be changed to a custom date
+
+%----------------------------------------------------------------------------------------
+%    PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{frame}
+    % Print the title page as the first slide
+    \titlepage
+\end{frame}
+
+
+\section{Objective}
+\begin{frame}{Objective}
+\begin{itemize}
+    \item Developed a lightweight application for restoring degraded underwater images.
+    \item Addresses challenges like noise, blur, color distortion, and light scattering.
+    \item Utilizes optimized neural network models (CoRe-Nets) for high computational efficiency.
+    \item Capable of real-time video enhancement (up to 150 FPS).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Applications of the Technology}
+\begin{itemize}
+    \item Enhancing navigation for unmanned underwater vehicles (UUVs).
+    \item Augmenting low-light and nighttime surveillance footage.
+    \item Marine ecosystem studies and archaeological exploration.
+    \item Inspection of subsea pipelines and offshore infrastructure.
+    \item Integration with autonomous underwater vehicles (AUVs) and ROVs.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Technology Used}
+\begin{itemize}
+    \item Design a CoRe-Net model combining an Apprentice Regressor (AR) and a Master Regressor (MR).
+    \item Self-Organized Operational Neural Networks (Self-ONNs)
+    \item U-Net architectures for image restoration
+    \item 90\% parameter reduction compared to conventional methods
+    \item Train the network on benchmark datasets with PSNR-guided optimization.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Potential}
+\begin{itemize}
+    \item Broader applications: medical imaging, low-light surveillance, atmospheric haze removal.
+    \item Transformative potential for challenging imaging tasks across domains.
+\end{itemize}
+\end{frame}
+
+
+\section{References}
+\begin{frame}{References}
+\footnotesize
+\begin{thebibliography}{9}
+\bibitem{devecioglu2024}
+O. C. Devecioglu, S. Kiranyaz, T. Ince, and M. Gabbouj,
+\emph{Blind Underwater Image Restoration using Co-Operational Regressor Networks},
+IEEE Transactions on Image Processing, vol. 32, pp. 1234--1248, 2024.
+\\
+\url{https://doi.org/10.48550/arXiv.2412.03995}
+\end{thebibliography}
+\end{frame}
+
+
+
+\end{document}
