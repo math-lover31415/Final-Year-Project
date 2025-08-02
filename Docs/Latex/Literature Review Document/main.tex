@@ -8,20 +8,20 @@
 \usepackage{ragged2e}
 \usepackage[a4paper, left=3cm, right=3cm, top=2.5cm, bottom=2.5cm]{geometry}
 \begin{document}
-
+\sloppy
 
 \title{Model Engineering College, Kochi\\
-Department of Computer Engineering\\
-B.Tech Computer Science & Engineering\\
-CSD415 PROJECT PHASE 1\\
-\textbf{Literature Review}\\
+    Department of Computer Engineering\\
+    B.Tech Computer Science and Engineering\\
+    CSD415 PROJECT PHASE 1\\
+    \textbf{Literature Review}\\
 }
 
 \author{
-22CSA16 MDL22CS049 Aravind Ashokan\\
-22CSA30 MDL22CS093 Harishanker S Nair\\
-22CSA50 MDL22CS154 Pradyumn R Pai\\
-22CSA51 MDL22CS155 Pranav P S\\
+    22CSA16 MDL22CS049 Aravind Ashokan\\
+    22CSA30 MDL22CS093 Harishanker S Nair\\
+    22CSA50 MDL22CS154 Pradyumn R Pai\\
+    22CSA51 MDL22CS155 Pranav P S\\
 }
 \date{1 August 2025}
 \maketitle
@@ -31,10 +31,10 @@ This project aims to develop a web extension that identifies and highlights bias
 
 \section{Literature Review}
 
-\subsection{Paper 1: \textit{Intelligent Underwater Object Detection and Image Restoration for Autonomous Underwater Vehicles}}
+\subsection{Paper 1: \textit{Intelligent Underwater Object Detection and Image Restoration for Autonomous Underwater Vehicles\cite{Fayaz_2023}}}
 
-\paragraph{Abstract:}  
-This paper proposes a \textbf{two-stage framework} for AUVs:  
+\paragraph{Abstract:}
+This paper proposes a \textbf{two-stage framework} for AUVs:
 \begin{enumerate}
     \item \textbf{Object Detection:} Uses YOLOv8 for fast ROI detection (94.6\% mAP).
     \item \textbf{Image Restoration:} A novel dehazing algorithm estimates per-channel transmission maps to reduce artifacts.
@@ -44,20 +44,20 @@ Achieves \textbf{UCIQE = 3.09} and \textbf{0.55s runtime}, enabling real-time un
 \paragraph{Methodology:}
 \begin{itemize}
     \item \textbf{Detection Stage:}
-    \begin{itemize}
-        \item YOLOv8 processes images in \textbf{0.028ms} (compared to YOLOv4’s 94.35\% mAP).
-        \item Trained on a curated dataset including fish, divers, and submarines.
-    \end{itemize}
-    
+          \begin{itemize}
+              \item YOLOv8 processes images in \textbf{0.028ms} (compared to YOLOv4’s 94.35\% mAP).
+              \item Trained on a curated dataset including fish, divers, and submarines.
+          \end{itemize}
+
     \item \textbf{Restoration Stage:}
-    \begin{itemize}
-        \item Estimates \textbf{transmission maps for RGB channels} separately.
-        \item Uses \textbf{Underwater Dark Channel Prior (UDCP)} and guided filtering.
-        \item Key equation:
-        \[
-        t_{bl}(e) = 1 - \left( \frac{\min_{c \in \{b,g\}}(\min_{y \in \pi(e)} I_c(y))}{c_{\text{err},g,b} A_{mc}} \right)
-        \]
-    \end{itemize}
+          \begin{itemize}
+              \item Estimates \textbf{transmission maps for RGB channels} separately.
+              \item Uses \textbf{Underwater Dark Channel Prior (UDCP)} and guided filtering.
+              \item Key equation:
+                    \[
+                        t_{bl}(e) = 1 - \left( \frac{\min_{c \in \{b,g\}}(\min_{y \in \pi(e)} I_c(y))}{c_{\text{err},g,b} A_{mc}} \right)
+                    \]
+          \end{itemize}
 \end{itemize}
 
 \paragraph{Advantages:}
@@ -73,24 +73,24 @@ Achieves \textbf{UCIQE = 3.09} and \textbf{0.55s runtime}, enabling real-time un
     \item \textbf{Limited depth testing:} Primarily validated at shallow depths (\textless5m).
 \end{itemize}
 
-\subsection{Paper 2: \textit{Comprehensive Underwater Object Tracking Benchmark Dataset and Underwater Image Enhancement With GAN}}
+\subsection{Paper 2: \textit{Comprehensive Underwater Object Tracking Benchmark Dataset and Underwater Image Enhancement With GAN\cite{Panetta_2021}}}
 
-\paragraph{Abstract:}  
+\paragraph{Abstract:}
 Introduces \textbf{UOT100}, the first underwater tracking dataset (104 videos, 74K frames), and \textbf{CRN-UIE}, a GAN model for enhancement. Benchmarks 20 trackers, showing performance drops underwater (e.g., SiamRPN++ precision drops from 0.914 to 0.230).
 
 \paragraph{Methodology:}
 \begin{itemize}
     \item \textbf{Dataset Creation:}
-    \begin{itemize}
-        \item Curated from natural and artificial underwater videos.
-        \item Categorized by distortion type (blue/green/yellow water).
-    \end{itemize}
+          \begin{itemize}
+              \item Curated from natural and artificial underwater videos.
+              \item Categorized by distortion type (blue/green/yellow water).
+          \end{itemize}
 
     \item \textbf{CRN-UIE GAN:}
-    \begin{itemize}
-        \item Uses \textbf{cascaded residual blocks} and \textbf{gradient profile loss}.
-        \item \textbf{Multi-scale discriminators} improve sharpness.
-    \end{itemize}
+          \begin{itemize}
+              \item Uses \textbf{cascaded residual blocks} and \textbf{gradient profile loss}.
+              \item \textbf{Multi-scale discriminators} improve sharpness.
+          \end{itemize}
 \end{itemize}
 
 \paragraph{Advantages:}
@@ -105,19 +105,18 @@ Introduces \textbf{UOT100}, the first underwater tracking dataset (104 videos, 7
     \item \textbf{Synthetic bias:} Artificial videos may not reflect all real conditions.
 \end{itemize}
 
-\subsection{Paper 3: \textit{A Non-Reference Evaluation of Underwater Image Enhancement Methods Using a New Underwater Image Dataset}}
+\subsection{Paper 3: \textit{A Non-Reference Evaluation of Underwater Image Enhancement Methods Using a New Underwater Image Dataset\cite{Saleem_2023}}}
 
-\paragraph{Abstract:}  
-Presents \textbf{CDUIE}, a real-world dataset (85 plant images at 1–3m depth), and benchmarks 9 enhancement methods (e.g., WaterNet, UColor) using \textbf{non-reference metrics} (BRISQUE, NIQE, CCF).
+Presents \textbf{CDUIE}, a real-world dataset (85 plant images at 1--3m depth), and benchmarks 9 enhancement methods (e.g., WaterNet, UColor) using \textbf{non-reference metrics} (BRISQUE, NIQE, CCF).
 
 \paragraph{Methodology:}
 \begin{itemize}
     \item \textbf{Dataset:} Collected via ROV in turbid lake water.
     \item \textbf{Evaluation Metrics:}
-    \begin{itemize}
-        \item \textbf{Entropy:} Measures detail retention.
-        \item \textbf{CCF:} Combines colorfulness, contrast, and fog density.
-    \end{itemize}
+          \begin{itemize}
+              \item \textbf{Entropy:} Measures detail retention.
+              \item \textbf{CCF:} Combines colorfulness, contrast, and fog density.
+          \end{itemize}
 \end{itemize}
 
 \paragraph{Advantages:}
@@ -132,20 +131,20 @@ Presents \textbf{CDUIE}, a real-world dataset (85 plant images at 1–3m depth),
     \item \textbf{Limited scenes:} Focused on plants, not diverse objects.
 \end{itemize}
 
-\subsection{Paper 4: \textit{A Wavelet-Based Dual 
-Stream Network For Underwater Image Enhancement}}
+\subsection{Paper 4: \textit{A Wavelet-Based Dual
+        Stream Network For Underwater Image Enhancement\cite{Ma_2022}}}
 
-\paragraph{Abstract:}  
+\paragraph{Abstract:}
 This method enhances underwater images by applying a wavelet-based decomposition that separates structural and detail components. A dual-stream neural network then restores color and texture independently, and fuses them to generate high-quality results. The use of multi-color space fusion and GAN-based training improves realism and visual clarity.
 
 \paragraph{Methodology:}
 \begin{itemize}
     \item  \textbf{Wavelet Decomposition (DWT):} Splits the image into low- and high-frequency sub-bands (ILL, ILH, IHL, IHH).
     \item \textbf{Dual-Stream Network:}
-        \begin{itemize}
-            \item \textbf{Multi-color space fusion network:}  Enhances low-frequency ILL using color correction and multi-color space fusion.
-            \item \textbf{Detail Branch:} Enhances high-frequency ILH, IHL, IHH sub-bands to recover texture and edges.
-        \end{itemize}
+          \begin{itemize}
+              \item \textbf{Multi-color space fusion network:}  Enhances low-frequency ILL using color correction and multi-color space fusion.
+              \item \textbf{Detail Branch:} Enhances high-frequency ILH, IHL, IHH sub-bands to recover texture and edges.
+          \end{itemize}
     \item \textbf{Reconstruction (IDWT):} Merges enhanced sub-bands to produce the final output.
     \item \textbf{Training:} Uses combined L1 + MSSIM (structure), detail loss, and adversarial loss.
 \end{itemize}
@@ -165,7 +164,7 @@ This method enhances underwater images by applying a wavelet-based decomposition
 
 \subsection{Paper 5: \textit{Lightweight Underwater Image Enhancement via Impulse Response of Low-pass Filter Based Attention Network}}
 
-\paragraph{Abstract:}  
+\paragraph{Abstract:}
 This paper proposes an \textbf{improved Shallow-UWnet model} for underwater image enhancement targeting resource-constrained underwater robots:
 \begin{enumerate}
     \item \textbf{Skip Connection Enhancement:} Incorporates raw underwater images and impulse response of low-pass filter (LPF) to solve vanishing gradient problems.
@@ -177,42 +176,42 @@ Demonstrates superior results with \textbf{PSNR = 27.87}, \textbf{SSIM = 0.84}, 
 \paragraph{Methodology:}
 \begin{itemize}
     \item \textbf{Architecture Enhancement:}
-    \begin{itemize}
-        \item Modifies Shallow-UWnet by adding skip connections that concatenate raw underwater images with LPF impulse responses.
-        \item Reduces ConvBlock features from 61 to 58 to accommodate additional input channels.
-        \item Maintains three successive ConvBlocks with ReLU activation and dropout regularization.
-    \end{itemize}
-    
+          \begin{itemize}
+              \item Modifies Shallow-UWnet by adding skip connections that concatenate raw underwater images with LPF impulse responses.
+              \item Reduces ConvBlock features from 61 to 58 to accommodate additional input channels.
+              \item Maintains three successive ConvBlocks with ReLU activation and dropout regularization.
+          \end{itemize}
+
     \item \textbf{Low-Pass Filter Integration:}
-    \begin{itemize}
-        \item Evaluates four LPF variants: Sparsity-based LPF (SLPF), Direct LPF (DLPF), Gaussian LPF (GLPF), and Butterworth LPF (BLPF).
-        \item \emph{SLPF formulation:} Power spectrum sparsity 
-        \[
-        S = \frac{P_a}{P_h + P_v}, \quad \gamma = \lambda S.
-        \]
-        \item \emph{Frequency response:}
-        \[
-        H_S(\omega_1,\omega_2)=
-        \begin{cases}
-          1, & P(\omega_1,\omega_2)\le\gamma,\\
-          0, & \text{otherwise}.
-        \end{cases}
-        \]
-    \end{itemize}
-    
+          \begin{itemize}
+              \item Evaluates four LPF variants: Sparsity-based LPF (SLPF), Direct LPF (DLPF), Gaussian LPF (GLPF), and Butterworth LPF (BLPF).
+              \item \emph{SLPF formulation:} Power spectrum sparsity
+                    \[
+                        S = \frac{P_a}{P_h + P_v}, \quad \gamma = \lambda S.
+                    \]
+              \item \emph{Frequency response:}
+                    \[
+                        H_S(\omega_1,\omega_2)=
+                        \begin{cases}
+                            1, & P(\omega_1,\omega_2)\le\gamma, \\
+                            0, & \text{otherwise}.
+                        \end{cases}
+                    \]
+          \end{itemize}
+
     \item \textbf{SimAM Attention Module:}
-    \begin{itemize}
-        \item Parameter-free 3D attention mechanism based on energy theory.
-        \item \emph{Energy calculation:}
-        \[
-        \varepsilon_T = \frac{4(\rho^2 + \alpha)}{(T - \eta)^2 + 2\rho^2 + 2\alpha},
-        \]
-        where $\eta = \tfrac{1}{N}\sum_i y_i$ and $\rho^2 = \tfrac{1}{N}\sum_i(y_i-\eta)^2$.
-        \item \emph{Attention output:}
-        \[
-        \widetilde{Y} = \sigma\!\bigl(\tfrac{1}{E}\bigr)\odot Y.
-        \]
-    \end{itemize}
+          \begin{itemize}
+              \item Parameter-free 3D attention mechanism based on energy theory.
+              \item \emph{Energy calculation:}
+                    \[
+                        \varepsilon_T = \frac{4(\rho^2 + \alpha)}{(T - \eta)^2 + 2\rho^2 + 2\alpha},
+                    \]
+                    where $\eta = \tfrac{1}{N}\sum_i y_i$ and $\rho^2 = \tfrac{1}{N}\sum_i(y_i-\eta)^2$.
+              \item \emph{Attention output:}
+                    \[
+                        \widetilde{Y} = \sigma\!\bigl(\tfrac{1}{E}\bigr)\odot Y.
+                    \]
+          \end{itemize}
 \end{itemize}
 
 \paragraph{Advantages:}
@@ -232,15 +231,23 @@ Demonstrates superior results with \textbf{PSNR = 27.87}, \textbf{SSIM = 0.84}, 
 \end{itemize}
 
 \subsection{Paper 6: \textit{Color Correction Based on CFA and Enhancement
+<<<<<<< HEAD
 Based on Retinex With Dense Pixels for
 Underwater Images}}
 
 \paragraph{Abstract:}  
+=======
+        Based on Retinex With Dense Pixels for
+        Underwater Images\cite{Li_2020}}}
+
+\paragraph{Abstract:}
+>>>>>>> 4ca868f (Add paper to literature review)
 This paper proposes a novel method combining color correction based on the Color Filter Array (CFA) characteristics and illumination enhancement using Retinex theory with dense pixel paths. The approach involves compensating the red channel using green and blue channels, applying white balance, enhancing illumination via a modified McCann Retinex algorithm with dense sampling, and performing a piecewise linear adaptive histogram transformation. Experimental results demonstrate superior visual quality and improved objective metrics compared to existing state-of-the-art methods.
 
 \paragraph{Methodology:}
 \begin{itemize}
     \item Red channel compensation based on CFA
+<<<<<<< HEAD
         \begin{itemize}
             \item Uses the dependency between channels introduced by CFA interpolation.
             \item The red channel is compensated using a weighted combination of local averages from green and blue channels.
@@ -259,11 +266,32 @@ This paper proposes a novel method combining color correction based on the Color
             \item Piecewise linear transformation shifts channel means into [100, 140] range.
             \item Compared to gamma correction and global histogram stretching, it shows improved perceptual quality.
         \end{itemize}
+=======
+          \begin{itemize}
+              \item Uses the dependency between channels introduced by CFA interpolation.
+              \item The red channel is compensated using a weighted combination of local averages from green and blue channels.
+          \end{itemize}
+
+    \item Applies standard white balancing
+    \item Retinex with dense pixels
+          \begin{itemize}
+              \item Spiral path estimation is sparse and directionally biased.
+              \item Uses eight directional paths (clockwise and counterclockwise from diagonals) to uniformly sample the image.
+              \item Yields better global illumination estimation and local detail enhancement.
+          \end{itemize}
+    \item Adaptive Histogram Transformation
+          \begin{itemize}
+              \item Gray-World theory; average intensity for a balanced image should be ~128 per channel.
+              \item Piecewise linear transformation shifts channel means into [100, 140] range.
+              \item Compared to gamma correction and global histogram stretching, it shows improved perceptual quality.
+          \end{itemize}
+>>>>>>> 4ca868f (Add paper to literature review)
 \end{itemize}
 
 \paragraph{Advantages:}
 \begin{itemize}
     \item \textbf{No Training Required} \\
+<<<<<<< HEAD
     Unlike deep learning models, this method is unsupervised and model-free.
 
     \item \textbf{Red Channel Restoration from CFA Dependency} \\
@@ -277,12 +305,28 @@ This paper proposes a novel method combining color correction based on the Color
 
     \item \textbf{Superior Quantitative Metrics} \\
     Outperforms baselines in Entropy, NIQE, IL-NIQE, UIQM, and UCIQE.
+=======
+          Unlike deep learning models, this method is unsupervised and model-free.
+
+    \item \textbf{Red Channel Restoration from CFA Dependency} \\
+          Utilizes inherent sensor properties for more accurate color correction.
+
+    \item \textbf{Enhanced Illumination Estimation} \\
+          Dense Retinex paths provide uniform enhancement across the image, including darker corners.
+
+    \item \textbf{Robust to Various Underwater Conditions} \\
+          Tested across multiple datasets and turbidity levels with consistent performance.
+
+    \item \textbf{Superior Quantitative Metrics} \\
+          Outperforms baselines in Entropy, NIQE, IL-NIQE, UIQM, and UCIQE.
+>>>>>>> 4ca868f (Add paper to literature review)
 \end{itemize}
 
 \paragraph{Disadvantages}
 
 \begin{itemize}
     \item \textbf{Fixed Parameters} \\
+<<<<<<< HEAD
     Certain constants like $\alpha$ and $\varepsilon$ are manually tuned and not adaptive to image content.
 
     \item \textbf{No Learning or Semantic Understanding} \\
@@ -296,6 +340,80 @@ This paper proposes a novel method combining color correction based on the Color
 
     \item \textbf{Limited Evaluation on Extreme Scenarios} \\
     While robust, it may underperform in highly turbid or low-visibility waters compared to some deep learning models.
+=======
+          Certain constants like $\alpha$ and $\varepsilon$ are manually tuned and not adaptive to image content.
+
+    \item \textbf{No Learning or Semantic Understanding} \\
+          Cannot distinguish object-level features or adapt to scene semantics (unlike GAN-based methods).
+
+    \item \textbf{Computational Overhead from Dense Paths} \\
+          Dense pixel processing can be more computationally expensive compared to sparse methods.
+
+    \item \textbf{Not Optimized for Real-Time Use on Low-Power Devices} \\
+          Although efficient, the method may still be heavy for embedded or low-resource systems without further optimization.
+
+    \item \textbf{Limited Evaluation on Extreme Scenarios} \\
+          While robust, it may underperform in highly turbid or low-visibility waters compared to some deep learning models.
+\end{itemize}
+
+\subsection{Paper 7: \textit{Underwater Image Enhancement via Medium
+        Transmission-Guided Multi-Color Space Embedding\cite{Li_2021}}}
+
+\paragraph{Abstract:}
+This paper proposes a multi-color space encoder network that incorporates characteristics of differeent color spaces into a unified structure. It uses an attention mechanism to find discriminative features and adaptively highlights them. The decoder network is guided by phisical models to find quality degraded areas
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item Multi-Color Space Encoder
+          \begin{itemize}
+              \item Transforms input into RGB, HSV, and Lab color spaces
+              \item Each color space is passed through a Residual Enhancement Module that has convolution laters with Leaky ReLU activation and Pixel-wise addition with the original image
+              \item Pixel wise addition prevents vanishing gradients and preserves low level details
+          \end{itemize}
+
+    \item Medium Transmission Based Decoder
+          \begin{itemize}
+              \item Use a reverse medium transmission map as an attention mask
+                    \begin{itemize}
+                        \item Medium transmission T(x) represents how much light from the scene at pixel x reaches the camera after being attenuated and scattered in water.
+                        \item It can be measured mathematically based on scene radiance and background light
+                        \item Reverse Medium Transformation (RMT) is measured as RMT(x) = 1-T(x) and represents how much degradation is caused in the image due to water
+                    \end{itemize}
+              \item Combine encoder features with the RMT map to emphasize degraded areas
+              \item Reconstruct output via resifual enhancement and upsampling layers
+          \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item \textbf{Combines Physical and Data-driven Approaches} \\
+          Uses medium transmission (from physical modelling) within a deep learning pipeline
+
+    \item \textbf{Multi-Color Space Feature Learning} \\
+          Capture richer information by processing data across different color spaces
+    
+    \item \textbf{Attention Mechanism based on Medium Transmission} \\
+          Enhance important features based on degradation
+
+    \item \textbf{Superior Quantitative Metrics} \\
+          Outperforms baselines in PSNR,MSE, UIQM, and UCIQE.
+\end{itemize}
+
+\paragraph{Disadvantages}
+
+\begin{itemize}
+    \item \textbf{Dependence on Medium Transmission Estimation} \\
+          Inaccurate transmission maps can degrade performance in severly degraded regions
+
+    \item \textbf{Computational Complexity} \\
+          Multi-color space embedding and attention modules increase computational costs and are not suitable for real time applications
+
+    \item \textbf{Lighting Conditions} \\
+          Performance is limited in images with very low lightin
+
+    \item \textbf{Lack of Real Ground Truth for Transmission Maps} \\
+          Medium transmission map is estimated based on heuristics and may not capture true degradation levels
+>>>>>>> 4ca868f (Add paper to literature review)
 \end{itemize}
 
 
@@ -303,6 +421,7 @@ This paper proposes a novel method combining color correction based on the Color
 \section{ Literature Review Summary}
 
 \begin{tabularx}{\textwidth}{|c|>{\RaggedRight\arraybackslash}X|>{\RaggedRight\arraybackslash}X|>{\RaggedRight\arraybackslash}X|>{\RaggedRight\arraybackslash}X|}
+<<<<<<< HEAD
 \hline
 \textbf{Year} & \textbf{Paper Title} & \textbf{Methodology} & \textbf{Advantages} & \textbf{Disadvantages} \\
 \hline
@@ -318,6 +437,23 @@ This paper proposes a novel method combining color correction based on the Color
 \hline
 2020 & Li, C. et al. "Color Correction Based on CFA and Enhancement Based on Retinex With Dense Pixels for Underwater Images" & CFA-based red channel correction, dense-path Retinex, and adaptive histogram transformation & Accurate color correction without training data & Manually tuned parameters reduce adaptability \\
 \hline
+=======
+    \hline
+    \textbf{Year} & \textbf{Paper Title}                                                                                                      & \textbf{Methodology}                                                                        & \textbf{Advantages}                             & \textbf{Disadvantages}                        \\
+    \hline
+    2024          & Fayaz, S. et al. "Intelligent Underwater Object Detection and Image Restoration for Autonomous Underwater Vehicles"       & YOLOv8 for image processing and UDCP for image restoration                                  & Robust dehazing                                 & Limited depth testing                         \\
+    \hline
+    2021          & Panetta, K. et al. "Comprehensive Underwater Object Tracking Benchmark Dataset and Underwater Image Enhancement With GAN" & CRN-UIE GAN                                                                                 & Improves tracker precision by 30\%              & Computational cost and synthetic bias         \\
+    \hline
+    2023          & Saleem, A. et al. "A Non-Reference Evaluation of Underwater Image Enhancement Using a New Underwater Image Dataset"       &                                                                                             &                                                 &                                               \\
+    \hline
+    2022          & Ziyin Ma and Changjae Oh "A Wavelet-Based Dual-Stream Network for Underwater Image Enhancement"                           & DWT, U-NET, GAN                                                                             & GAN improves visual realism                     & Computationally heavier                       \\
+    \hline
+    2024          & Fayaz, S. et al. "Intelligent Underwater Object Detection and Image Restoration for Autonomous Underwater Vehicles"       & YOLOv8 for image processing and UDCP for image restoration                                  & Robust dehazing                                 & Limited depth testing                         \\
+    \hline
+    2020          & Li, C. et al. "Color Correction Based on CFA and Enhancement Based on Retinex With Dense Pixels for Underwater Images"    & CFA-based red channel correction, dense-path Retinex, and adaptive histogram transformation & Accurate color correction without training data & Manually tuned parameters reduce adaptability \\
+    \hline
+>>>>>>> 4ca868f (Add paper to literature review)
 \end{tabularx}
 
 
@@ -327,6 +463,7 @@ We can develop a web extension that identifies and highlights bias in online new
 \section{Conclusion}
 This project aims to bridge the gap between content consumption and critical analysis by providing a robust tool for identifying and understanding bias in online news articles. By leveraging cutting-edge NLP techniques and machine learning models, the proposed web extension will empower users to engage with media more thoughtfully and objectively. Ultimately, this solution aspires to combat the effects of media polarization, promote transparency, and encourage balanced perspectives, fostering a more informed and equitable information ecosystem.
 
+<<<<<<< HEAD
 \section*{References}
 \begin{enumerate}
     \item Fayaz, S. et al. "Intelligent Underwater Object Detection and Image Restoration for Autonomous Underwater Vehicles". In: (2024)
@@ -339,6 +476,11 @@ This project aims to bridge the gap between content consumption and critical ana
 
 
 \end{enumerate}
+=======
+\nocite{*}
+\bibliography{references}
+\bibliographystyle{plain}
+>>>>>>> 4ca868f (Add paper to literature review)
 
 
 
