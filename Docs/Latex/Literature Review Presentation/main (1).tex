@@ -1,0 +1,137 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Set all standard text colors to black
+\setbeamercolor{normal text}{fg=black,bg=white}
+\setbeamercolor{structure}{fg=black} % Titles, bullets, etc.
+
+\title{
+Real Time Underwater Image Restoration using
+Co-Operational Regressor Networks
+}
+\subtitle{CoRe-Nets}
+\author{
+\textbf{GROUP 14}\\
+22CSA16 MDL22CS049 Aravind Ashokan \\
+22CSA30 MDL22CS093 Harishanker S Nair\\
+22CSA50 MDL22CS154 Pradyumn R Pai\\
+22CSA51 MDL22CS155 Pranav P S
+}
+\date{August 1, 2025}
+
+% Override footer
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=0.3\paperwidth,ht=2.5ex,dp=1ex,left]{author in head/foot}%
+      \hspace{1em}Group 14
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.4\paperwidth,ht=2.5ex,dp=1ex,center]{title in head/foot}%
+      Underwater Image Restoration
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=0.3\paperwidth,ht=2.5ex,dp=1ex,right]{date in head/foot}%
+      August 1, 2025 • \insertframenumber{} / \inserttotalframenumber\hspace{1em}
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% \begin{frame}{Table of Contents}
+%   \tableofcontents
+% \end{frame}
+
+\section{Introduction}
+\begin{frame}{Introduction}
+  Veritas is a machine learning-based system designed to classify news articles based on media bias. 
+  The objective is to promote awareness and encourage critical thinking among readers by identifying political leanings in news content.
+\end{frame}
+
+
+\section{Papers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ADD YOUR CONTENT HERE IN A NEW FRAME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Table}
+
+\begin{frame}{Literature Review (1/2)}
+  \footnotesize
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{|c|>{\raggedright\arraybackslash}p{4.5cm}|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
+    \hline
+    \textbf{Year} & \textbf{Paper Title} & \textbf{Methodology} & \textbf{Advantages} & \textbf{Disadvantages} \\
+    \hline
+    2025 & Bhushan Santosh Shah et al. ``Decoding News Bias: Multi Bias Detection in News Articles'' & LLM annotations, transformer models & Broad bias scope & Class imbalance \\
+    \hline
+    2021 & Timo Spinde et al. ``Neural Media Bias Detection Using Distant Supervision With BABE'' & Expert-annotated dataset, BERT classifier & High-quality dataset & US media only \\
+    \hline
+    2019 & Rama Rohit Reddy et al. ``Detecting Political Bias Using Headline Attention'' & Headline Attention Network (LSTMs) & Effective mechanism & Political bias only \\
+    \hline
+    2019 & Jacob Devlin et al. ``BERT: Pre-training of Deep Bidirectional Transformers'' & Masked LM, Next Sentence Prediction & State-of-the-art & Computationally heavy \\
+    \hline
+  \end{tabular}%
+  }
+\end{frame}
+
+\begin{frame}{Literature Review (2/2)}
+  \footnotesize
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{|c|>{\raggedright\arraybackslash}p{4.5cm}|>{\raggedright\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}p{2cm}|>{\raggedright\arraybackslash}p{2cm}|}
+    \hline
+    \textbf{Year} & \textbf{Paper Title} & \textbf{Methodology} & \textbf{Advantages} & \textbf{Disadvantages} \\
+    \hline
+    2020 & Wafaa El-Kassas et al. ``Automatic Text Summarization: A Survey'' & Literature review of ATS methods & Comprehensive & No new techniques \\
+    \hline
+    2008 & Mohamed Fattah et al. ``Automatic Text Summarization'' & Feature-based, genetic algorithm & Simple approach & Extractive only \\
+    \hline
+    2018 & Jose Camacho-Collados et al. ``On Text Preprocessing in Neural Networks'' & Evaluation of preprocessing steps & Preprocessing focus & Limited scope \\
+    \hline
+    2024 & Timo Spinde et al. ``Enhancing Media Literacy'' & Human vs AI label comparison & Effective visualizations & Political bias present \\
+    \hline
+  \end{tabular}%
+  }
+\end{frame}
+
+
+\section{References}
+\begin{frame}{References}
+\begin{itemize}
+    \item Bhushan Santosh Shah, Deven Santosh Shah, Vahida Attar. "Decoding News Bias: Multi Bias Detection in News Articles" (2025).
+    \item Timo Spinde et al. "Neural Media Bias Detection Using Distant Supervision With BABE - Bias Annotations By Experts" (2021).
+    \item Rama Rohit Reddy, Suma Reddy Duggenpudi, Radhika Mamidi. "Detecting Political Bias in News Articles Using Headline Attention" (2019).
+    \item Jose Camacho-Collados, Mohammad Taher Pilehvar. "On the Role of Text Preprocessing in Neural Network Architectures" (2018).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{References}
+\begin{itemize}
+    \item Jacob Devlin, Ming-Wei Chang, Kenton Lee, Kristina Toutanova. "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding" (2019).
+    \item Mohamed Abdel Fattah, Fuji Ren. "Automatic Text Summarization" (2008).
+    \item Wafaa Samy El-Kassas et al. "Automatic Text Summarization: A Comprehensive Survey" (2020).
+    \item Timo Spinde et al. "Enhancing Media Literacy: Effectiveness of Annotations and Bias Visualizations" (2024).
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \centering
+  \Huge Thank You!
+\end{frame}
+
+\end{document}

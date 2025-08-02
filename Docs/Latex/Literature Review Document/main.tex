@@ -1,0 +1,273 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{makecell}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage[a4paper, left=3cm, right=3cm, top=2.5cm, bottom=2.5cm]{geometry}
+\begin{document}
+
+
+\title{Model Engineering College, Kochi\\
+Department of Computer Engineering\\
+B.Tech Computer Science & Engineering\\
+CSD415 PROJECT PHASE 1\\
+\textbf{Literature Review}\\
+}
+
+\author{
+22CSA16 MDL22CS049 Aravind Ashokan\\
+22CSA30 MDL22CS093 Harishanker S Nair\\
+22CSA50 MDL22CS154 Pradyumn R Pai\\
+22CSA51 MDL22CS155 Pranav P S\\
+}
+\date{1 August 2025}
+\maketitle
+
+\section{Introduction}
+This project aims to develop a web extension that identifies and highlights bias in online news articles, empowering users to critically assess the information they consume. Leveraging advanced Natural Language Processing (NLP) techniques, the extension will analyze articles in real-time, identifying patterns and classifying sentiment to detect potential biases. By integrating a pre-trained BERT model, the system will offer a nuanced understanding of the article's content, providing users with an objective evaluation of its bias and encouraging informed decision-making.
+
+\section{Literature Review}
+
+\subsection{Paper 1: \textit{Intelligent Underwater Object Detection and Image Restoration for Autonomous Underwater Vehicles}}
+
+\paragraph{Abstract:}  
+This paper proposes a \textbf{two-stage framework} for AUVs:  
+\begin{enumerate}
+    \item \textbf{Object Detection:} Uses YOLOv8 for fast ROI detection (94.6\% mAP).
+    \item \textbf{Image Restoration:} A novel dehazing algorithm estimates per-channel transmission maps to reduce artifacts.
+\end{enumerate}
+Achieves \textbf{UCIQE = 3.09} and \textbf{0.55s runtime}, enabling real-time underwater monitoring.
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item \textbf{Detection Stage:}
+    \begin{itemize}
+        \item YOLOv8 processes images in \textbf{0.028ms} (compared to YOLOv4’s 94.35\% mAP).
+        \item Trained on a curated dataset including fish, divers, and submarines.
+    \end{itemize}
+    
+    \item \textbf{Restoration Stage:}
+    \begin{itemize}
+        \item Estimates \textbf{transmission maps for RGB channels} separately.
+        \item Uses \textbf{Underwater Dark Channel Prior (UDCP)} and guided filtering.
+        \item Key equation:
+        \[
+        t_{bl}(e) = 1 - \left( \frac{\min_{c \in \{b,g\}}(\min_{y \in \pi(e)} I_c(y))}{c_{\text{err},g,b} A_{mc}} \right)
+        \]
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item \textbf{High accuracy:} 94.6\% mAP for object detection.
+    \item \textbf{Real-time performance:} 0.55s total processing time.
+    \item \textbf{Robust dehazing:} Handles color distortion and scattering.
+\end{itemize}
+
+\paragraph{Disadvantages:}
+\begin{itemize}
+    \item \textbf{Prior dependency:} Restoration fails if transmission maps are inaccurate.
+    \item \textbf{Limited depth testing:} Primarily validated at shallow depths (\textless5m).
+\end{itemize}
+
+\subsection{Paper 2: \textit{Comprehensive Underwater Object Tracking Benchmark Dataset and Underwater Image Enhancement With GAN}}
+
+\paragraph{Abstract:}  
+Introduces \textbf{UOT100}, the first underwater tracking dataset (104 videos, 74K frames), and \textbf{CRN-UIE}, a GAN model for enhancement. Benchmarks 20 trackers, showing performance drops underwater (e.g., SiamRPN++ precision drops from 0.914 to 0.230).
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item \textbf{Dataset Creation:}
+    \begin{itemize}
+        \item Curated from natural and artificial underwater videos.
+        \item Categorized by distortion type (blue/green/yellow water).
+    \end{itemize}
+
+    \item \textbf{CRN-UIE GAN:}
+    \begin{itemize}
+        \item Uses \textbf{cascaded residual blocks} and \textbf{gradient profile loss}.
+        \item \textbf{Multi-scale discriminators} improve sharpness.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item \textbf{Diverse dataset:} Covers real-world underwater challenges.
+    \item \textbf{Enhanced tracking:} CRN-UIE improves tracker precision by 30\%.
+\end{itemize}
+
+\paragraph{Disadvantages:}
+\begin{itemize}
+    \item \textbf{Computational cost:} GAN training requires high resources.
+    \item \textbf{Synthetic bias:} Artificial videos may not reflect all real conditions.
+\end{itemize}
+
+\subsection{Paper 3: \textit{A Non-Reference Evaluation of Underwater Image Enhancement Methods Using a New Underwater Image Dataset}}
+
+\paragraph{Abstract:}  
+Presents \textbf{CDUIE}, a real-world dataset (85 plant images at 1–3m depth), and benchmarks 9 enhancement methods (e.g., WaterNet, UColor) using \textbf{non-reference metrics} (BRISQUE, NIQE, CCF).
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item \textbf{Dataset:} Collected via ROV in turbid lake water.
+    \item \textbf{Evaluation Metrics:}
+    \begin{itemize}
+        \item \textbf{Entropy:} Measures detail retention.
+        \item \textbf{CCF:} Combines colorfulness, contrast, and fog density.
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item \textbf{Real-world focus:} Turbid water images challenge enhancement methods.
+    \item \textbf{Comprehensive metrics:} Highlights trade-offs (e.g., GLN-HE improves contrast but distorts colors).
+\end{itemize}
+
+\paragraph{Disadvantages:}
+\begin{itemize}
+    \item \textbf{Small dataset:} Only 85 images.
+    \item \textbf{Limited scenes:} Focused on plants, not diverse objects.
+\end{itemize}
+
+\subsection{Paper 4: \textit{A Wavelet-Based Dual 
+Stream Network For Underwater Image Enhancement}}
+
+\paragraph{Abstract:}  
+This method enhances underwater images by applying a wavelet-based decomposition that separates structural and detail components. A dual-stream neural network then restores color and texture independently, and fuses them to generate high-quality results. The use of multi-color space fusion and GAN-based training improves realism and visual clarity.
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item  \textbf{Wavelet Decomposition (DWT):} Splits the image into low- and high-frequency sub-bands (ILL, ILH, IHL, IHH).
+    \item \textbf{Dual-Stream Network:}
+        \begin{itemize}
+            \item \textbf{Multi-color space fusion network:}  Enhances low-frequency ILL using color correction and multi-color space fusion.
+            \item \textbf{Detail Branch:} Enhances high-frequency ILH, IHL, IHH sub-bands to recover texture and edges.
+        \end{itemize}
+    \item \textbf{Reconstruction (IDWT):} Merges enhanced sub-bands to produce the final output.
+    \item \textbf{Training:} Uses combined L1 + MSSIM (structure), detail loss, and adversarial loss.
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item Works well even on real-world underwater images.
+    \item GAN improves visual realism.
+
+\end{itemize}
+
+\paragraph{Disadvantages:}
+\begin{itemize}
+    \item Computationally heavier due to dual networks and GAN.
+    \item Requires a large dataset for robust training.
+\end{itemize}
+
+\subsection{Paper 5: \textit{Lightweight Underwater Image Enhancement via Impulse Response of Low-pass Filter Based Attention Network}}
+
+\paragraph{Abstract:}  
+This paper proposes an \textbf{improved Shallow-UWnet model} for underwater image enhancement targeting resource-constrained underwater robots:
+\begin{enumerate}
+    \item \textbf{Skip Connection Enhancement:} Incorporates raw underwater images and impulse response of low-pass filter (LPF) to solve vanishing gradient problems.
+    \item \textbf{Attention Integration:} Integrates parameter-free SimAM attention modules into each Convolution Block for enhanced visual quality.
+    \item \textbf{Lightweight Design:} Achieves comparable performance with \textbf{216,000 parameters} (fewer than original Shallow-UWnet) and \textbf{0.05\,s testing time} per image.
+\end{enumerate}
+Demonstrates superior results with \textbf{PSNR = 27.87}, \textbf{SSIM = 0.84}, and \textbf{UIQM = 2.96} on the EUVP-Dark dataset.
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item \textbf{Architecture Enhancement:}
+    \begin{itemize}
+        \item Modifies Shallow-UWnet by adding skip connections that concatenate raw underwater images with LPF impulse responses.
+        \item Reduces ConvBlock features from 61 to 58 to accommodate additional input channels.
+        \item Maintains three successive ConvBlocks with ReLU activation and dropout regularization.
+    \end{itemize}
+    
+    \item \textbf{Low-Pass Filter Integration:}
+    \begin{itemize}
+        \item Evaluates four LPF variants: Sparsity-based LPF (SLPF), Direct LPF (DLPF), Gaussian LPF (GLPF), and Butterworth LPF (BLPF).
+        \item \emph{SLPF formulation:} Power spectrum sparsity 
+        \[
+        S = \frac{P_a}{P_h + P_v}, \quad \gamma = \lambda S.
+        \]
+        \item \emph{Frequency response:}
+        \[
+        H_S(\omega_1,\omega_2)=
+        \begin{cases}
+          1, & P(\omega_1,\omega_2)\le\gamma,\\
+          0, & \text{otherwise}.
+        \end{cases}
+        \]
+    \end{itemize}
+    
+    \item \textbf{SimAM Attention Module:}
+    \begin{itemize}
+        \item Parameter-free 3D attention mechanism based on energy theory.
+        \item \emph{Energy calculation:}
+        \[
+        \varepsilon_T = \frac{4(\rho^2 + \alpha)}{(T - \eta)^2 + 2\rho^2 + 2\alpha},
+        \]
+        where $\eta = \tfrac{1}{N}\sum_i y_i$ and $\rho^2 = \tfrac{1}{N}\sum_i(y_i-\eta)^2$.
+        \item \emph{Attention output:}
+        \[
+        \widetilde{Y} = \sigma\!\bigl(\tfrac{1}{E}\bigr)\odot Y.
+        \]
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item \textbf{Lightweight architecture:} 216,000 parameters vs.\ 219,456 in original Shallow-UWnet.
+    \item \textbf{Fast processing:} 0.05\,s per image enabling real-time enhancement.
+    \item \textbf{Robust performance:} Comparable or superior PSNR/SSIM/UIQM across EUVP-Dark, UFO-120, and UIEB.
+    \item \textbf{Noise reduction:} Better distinguishes image content from noise.
+\end{itemize}
+
+\paragraph{Disadvantages:}
+\begin{itemize}
+    \item \textbf{Marginal PSNR improvement:} Only slight gain over baseline (27.87 vs.\ 27.86 on EUVP-Dark).
+    \item \textbf{Color artifacts:} Overcontrast with reddish hue in heavily hazy regions persists.
+    \item \textbf{Dataset dependency:} Trained mainly on EUVP, may generalize poorly to other conditions.
+    \item \textbf{LPF variant selection:} No clear guidance on optimal filter choice; benefits similar across variants.
+\end{itemize}
+```
+
+\section*{3 Literature Review Summary}
+
+\begin{tabularx}{\textwidth}{|c|>{\RaggedRight\arraybackslash}X|>{\RaggedRight\arraybackslash}X|>{\RaggedRight\arraybackslash}X|>{\RaggedRight\arraybackslash}X|}
+\hline
+\textbf{Year} & \textbf{Paper Title} & \textbf{Methodology} & \textbf{Advantages} & \textbf{Disadvantages} \\
+\hline
+2024 &  Fayaz, S. et al. "Intelligent Underwater Object Detection and Image Restoration for Autonomous Underwater Vehicles" & YOLOv8 for image processing and UDCP for image restoration & Robust dehazing & Limited depth testing\\
+\hline
+2021 & Panetta, K. et al. "Comprehensive Underwater Object Tracking Benchmark Dataset and Underwater Image Enhancement With GAN" & CRN-UIE GAN & Improves tracker precision by 30\% & Computational cost and synthetic bias \\
+\hline
+2023 & Saleem, A. et al. "A Non-Reference Evaluation of Underwater Image Enhancement Using a New Underwater Image Dataset" &  & &\\
+\hline
+2022 & Ziyin Ma and Changjae Oh "A Wavelet-Based Dual-Stream Network for Underwater Image Enhancement" & DWT, U-NET, GAN & GAN improves visual realism & Computationally heavier\\
+\hline
+\end{tabularx}
+
+
+\section*{4 Proposal}
+We can develop a web extension that identifies and highlights bias in online news articles, empowering users to critically evaluate the information they consume. Using  Natural Language Processing (NLP) techniques and a machine learning model, the system will analyze articles in real time, pinpointing biased or misleading content and providing transparent annotations. Training data will be sourced from diverse media outlets, ensuring a balanced perspective, while preprocessing steps like text cleaning and n-gram generation will enhance model accuracy. By promoting media literacy and addressing the issue of polarization, this extension aims to foster informed decision-making and contribute to a more transparent information landscape.
+
+\section*{4 Conclusion}
+This project aims to bridge the gap between content consumption and critical analysis by providing a robust tool for identifying and understanding bias in online news articles. By leveraging cutting-edge NLP techniques and machine learning models, the proposed web extension will empower users to engage with media more thoughtfully and objectively. Ultimately, this solution aspires to combat the effects of media polarization, promote transparency, and encourage balanced perspectives, fostering a more informed and equitable information ecosystem.
+
+\section*{References}
+\begin{enumerate}
+    \item Fayaz, S. et al. "Intelligent Underwater Object Detection and Image Restoration for Autonomous Underwater Vehicles". In: (2024)
+
+    \item Panetta, K. et al. "Comprehensive Underwater Object Tracking Benchmark Dataset and Underwater Image Enhancement With GAN". In: (2021)
+
+    \item Saleem, A. et al. "A Non-Reference Evaluation of Underwater Image Enhancement Using a New Underwater Image Dataset". In (2023)
+
+
+\end{enumerate}
+
+
+
+
+\end{document}
+
