@@ -16,7 +16,7 @@
     B. Tech. Computer Science \& Engineering\\[4pt]
     \textbf{CSD415 PROJECT PHASE 1}\\[.5cm]
     
-    \LARGE{\textbf{Real Time Underwater Image Restoration using Wavelet-based Dual-stream Network}}\\[.5cm]
+    \LARGE{\textbf{Real-Time Underwater Image Enhancement Using a Two-Stage Network Based on Structure Decomposition}}\\[.5cm]
     
     \large{MDL22CS049 CSA16 Aravind Ashokan}\\[4pt]
     \large{MDL22CS093 CSA30 Harishanker S Nair}\\[4pt]
@@ -26,21 +26,19 @@
     \large{July 30, 2025}
 \end{center}
 
-\noindent\textbf{Keywords:} Underwater Image Restoration, Detail Enhancement, Color Correction, wavelet decomposition, multi-color space, dual-stream network, U-Net
+\noindent\textbf{Keywords:} Underwater Image Enhancement, Structure Decomposition, Joint Component Map, Two-Stage Network, Convolutional Neural Network
 
 \section*{Abstract}
-This project develops a lightweight application for restoring degraded underwater images. The system addresses complex challenges inherent to underwater environments, including noise, blur, color distortion, light scattering, color loss, and haze caused by suspended particles. Our approach utilizes learning based methods, usinga wavelet-based dual-stream network designed to address the complex problems present in underwater images\\
-
-Investigation revealed that Physics-based methods improve
-the brightness and contrast well, but fail to remove severe color
-cast and blurring. Learning based methods can deal more effectively with color cast and blurring. Image decomposition methods result in more accurate colors while at the same time needing less computational complexity.\\
-
-The resulting interactive application provides clear underwater image reconstruction with potential for real-time video conversion. Key applications include:
+This project develops a GPU-accelerated application for enhancing degraded underwater images in real time.
+The system addresses complex challenges inherent to underwater environments, including noise, blur, color distortion, light scattering, color loss, and haze caused by suspended particles.\\
+The proposed system utilizes a two-stage convolutional neural network designed to address the complex problems present in underwater images by 
+leveraging structure decomposition to separate high and low frequency components of underwater images and processing them separately.\\
+Investigation revealed that Physics-based methods improve the brightness and contrast well, but fail to remove severe color cast and blurring. Learning based methods can deal more effectively with color cast and blurring. Image decomposition methods result in more accurate colors while at the same time needing less computational complexity.\\
+The resulting trained model provides clear underwater image reconstruction with support for real-world image and video enhancement. Key applications include:
 
 \begin{itemize}
     \item Enhancing navigation and visibility for AI-assisted or remotely operated unmanned underwater vehicles (UUVs).
     \item  Augmenting nighttime surveillance or low-light footage where noise patterns resemble underwater degradation. Adapting the training data also enables effective image denoising.
-
 \end{itemize}
 
 The proposed system aims to address critical underwater imaging challenges, meeting diverse needs across marine science, industry, and defense. It can enhance clarity for studying marine ecosystems, improve visibility for archaeological exploration and artifact recovery, and enable real-time inspection of subsea pipelines and offshore infrastructure. The fast processing capability is suitable for integration with autonomous underwater vehicles (AUVs) and remotely operated vehicles (ROVs) deployed in search-and-rescue missions and military surveillance. Crucially, the solution can integrate with existing equipment without requiring specialized hardware, enhancing its practicality for research and commercial deployment.\\
