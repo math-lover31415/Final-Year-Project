@@ -24,7 +24,7 @@ using Co-Operational Regressor Networks}
     Department of Computer Science and Engineering \\
     Govt. Model Engineering College
 }
-\date{July 17, 2025} % Date, can be changed to a custom date
+\date{August 4th, 2025} % Date, can be changed to a custom date
 
 %----------------------------------------------------------------------------------------
 %    PRESENTATION SLIDES
@@ -41,10 +41,9 @@ using Co-Operational Regressor Networks}
 \section{Objective}
 \begin{frame}{Objective}
 \begin{itemize}
-    \item Developed a lightweight application for restoring degraded underwater images.
-    \item Addresses challenges like noise, blur, color distortion, and light scattering.
-    \item Utilizes optimized neural network models (CoRe-Nets) for high computational efficiency.
-    \item Capable of real-time video enhancement (up to 150 FPS).
+    \item Develop a GPU-accelerated application for restoring degraded underwater images.
+    \item Address challenges like noise, blur, color distortion, and light scattering.
+    \item Perform real-time video enhancement.
 \end{itemize}
 \end{frame}
 
@@ -58,13 +57,14 @@ using Co-Operational Regressor Networks}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Technology Used}
+\begin{frame}{Methodology}
 \begin{itemize}
-    \item Design a CoRe-Net model combining an Apprentice Regressor (AR) and a Master Regressor (MR).
-    \item Self-Organized Operational Neural Networks (Self-ONNs)
-    \item U-Net architectures for image restoration
-    \item 90\% parameter reduction compared to conventional methods
-    \item Train the network on benchmark datasets with PSNR-guided optimization.
+    \item Underwater images are decomposed into high-frequency(HF) and low-frequency(LF) components using Discrete Cosine Transform
+    \item HF captures edge details and LF captures global appearance
+    \item A CNN directly enhances the HF component to restore image sharpness.
+    \item The LF network estimates a Joint Component Map (JCM), which integrates the transmission map and background light. This bypasses errors from estimating them separately and is used to reconstruct the LF component.
+    \item The enhanced HF and LF components are then combined to form a preliminary enhanced image.
+    \item The preliminary image is passed through a refinement network to improve visual quality, correcting residual distortions and ensuring better color fidelity.
 \end{itemize}
 \end{frame}
 
@@ -76,19 +76,10 @@ using Co-Operational Regressor Networks}
 \end{frame}
 
 
-\section{References}
 \begin{frame}{References}
-\footnotesize
-\begin{thebibliography}{9}
-\bibitem{devecioglu2024}
-O. C. Devecioglu, S. Kiranyaz, T. Ince, and M. Gabbouj,
-\emph{Blind Underwater Image Restoration using Co-Operational Regressor Networks},
-IEEE Transactions on Image Processing, vol. 32, pp. 1234--1248, 2024.
-\\
-\url{https://doi.org/10.48550/arXiv.2412.03995}
-\end{thebibliography}
+\nocite{*}
+\bibliography{references}
+\bibliographystyle{plain}
 \end{frame}
-
-
 
 \end{document}
