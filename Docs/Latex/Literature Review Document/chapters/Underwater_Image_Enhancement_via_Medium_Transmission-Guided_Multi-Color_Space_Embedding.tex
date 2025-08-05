@@ -1,0 +1,58 @@
+\subsection{\textit{Underwater Image Enhancement via Medium
+        Transmission-Guided Multi-Color Space Embedding\cite{Li_2021}}}
+
+\paragraph{Abstract:}
+This paper proposes a multi-color space encoder network that incorporates characteristics of differeent color spaces into a unified structure. It uses an attention mechanism to find discriminative features and adaptively highlights them. The decoder network is guided by phisical models to find quality degraded areas
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item Multi-Color Space Encoder
+          \begin{itemize}
+              \item Transforms input into RGB, HSV, and Lab color spaces
+              \item Each color space is passed through a Residual Enhancement Module that has convolution laters with Leaky ReLU activation and Pixel-wise addition with the original image
+              \item Pixel wise addition prevents vanishing gradients and preserves low level details
+          \end{itemize}
+
+    \item Medium Transmission Based Decoder
+          \begin{itemize}
+              \item Use a reverse medium transmission map as an attention mask
+                    \begin{itemize}
+                        \item Medium transmission T(x) represents how much light from the scene at pixel x reaches the camera after being attenuated and scattered in water.
+                        \item It can be measured mathematically based on scene radiance and background light
+                        \item Reverse Medium Transformation (RMT) is measured as RMT(x) = 1-T(x) and represents how much degradation is caused in the image due to water
+                    \end{itemize}
+              \item Combine encoder features with the RMT map to emphasize degraded areas
+              \item Reconstruct output via resifual enhancement and upsampling layers
+          \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item \textbf{Combines Physical and Data-driven Approaches} \\
+          Uses medium transmission (from physical modelling) within a deep learning pipeline
+
+    \item \textbf{Multi-Color Space Feature Learning} \\
+          Capture richer information by processing data across different color spaces
+    
+    \item \textbf{Attention Mechanism based on Medium Transmission} \\
+          Enhance important features based on degradation
+
+    \item \textbf{Superior Quantitative Metrics} \\
+          Outperforms baselines in PSNR,MSE, UIQM, and UCIQE.
+\end{itemize}
+
+\paragraph{Disadvantages}
+
+\begin{itemize}
+    \item \textbf{Dependence on Medium Transmission Estimation} \\
+          Inaccurate transmission maps can degrade performance in severly degraded regions
+
+    \item \textbf{Computational Complexity} \\
+          Multi-color space embedding and attention modules increase computational costs and are not suitable for real time applications
+
+    \item \textbf{Lighting Conditions} \\
+          Performance is limited in images with very low lightin
+
+    \item \textbf{Lack of Real Ground Truth for Transmission Maps} \\
+          Medium transmission map is estimated based on heuristics and may not capture true degradation levels
+\end{itemize}

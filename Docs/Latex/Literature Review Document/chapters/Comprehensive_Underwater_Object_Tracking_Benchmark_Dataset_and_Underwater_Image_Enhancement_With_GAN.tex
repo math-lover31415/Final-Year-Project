@@ -1,0 +1,31 @@
+\subsection{\textit{Comprehensive Underwater Object Tracking Benchmark Dataset and Underwater Image Enhancement With GAN\cite{Panetta_2021}}}
+
+\paragraph{Abstract:}
+Introduces \textbf{UOT100}, the first underwater tracking dataset (104 videos, 74K frames), and \textbf{CRN-UIE}, a GAN model for enhancement. Benchmarks 20 trackers, showing performance drops underwater (e.g., SiamRPN++ precision drops from 0.914 to 0.230).
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item \textbf{Dataset Creation:}
+          \begin{itemize}
+              \item Curated from natural and artificial underwater videos.
+              \item Categorized by distortion type (blue/green/yellow water).
+          \end{itemize}
+
+    \item \textbf{CRN-UIE GAN:}
+          \begin{itemize}
+              \item Uses \textbf{cascaded residual blocks} and \textbf{gradient profile loss}.
+              \item \textbf{Multi-scale discriminators} improve sharpness.
+          \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item \textbf{Diverse dataset:} Covers real-world underwater challenges.
+    \item \textbf{Enhanced tracking:} CRN-UIE improves tracker precision by 30\%.
+\end{itemize}
+
+\paragraph{Disadvantages:}
+\begin{itemize}
+    \item \textbf{Computational cost:} GAN training requires high resources.
+    \item \textbf{Synthetic bias:} Artificial videos may not reflect all real conditions.
+\end{itemize}

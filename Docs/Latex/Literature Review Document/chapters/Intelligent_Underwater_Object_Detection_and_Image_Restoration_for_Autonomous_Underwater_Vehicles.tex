@@ -1,0 +1,41 @@
+\subsection{\textit{Intelligent Underwater Object Detection and Image Restoration for Autonomous Underwater Vehicles}\cite{Fayaz_2023}}
+
+\paragraph{Abstract:}
+This paper proposes a \textbf{two-stage framework} for AUVs:
+\begin{itemize}
+    \item \textbf{Object Detection:} Uses YOLOv8 for fast ROI detection (94.6% mAP).
+    \item \textbf{Image Restoration:} A novel dehazing algorithm estimates per-channel transmission maps to reduce artifacts.
+\end{itemize}
+Achieves \textbf{UCIQE = 3.09} and \textbf{0.55s runtime}, enabling real-time underwater monitoring.
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item \textbf{Detection Stage:}
+          \begin{itemize}
+              \item YOLOv8 processes images in \textbf{0.028ms} (compared to YOLOv4’s 94.35% mAP).
+              \item Trained on a curated dataset including fish, divers, and submarines.
+          \end{itemize}
+
+    \item \textbf{Restoration Stage:}
+          \begin{itemize}
+              \item Estimates \textbf{transmission maps for RGB channels} separately.
+              \item Uses \textbf{Underwater Dark Channel Prior (UDCP)} and guided filtering.
+              \item Key equation:
+                    \[
+                        t_{bl}(e) = 1 - \left( \frac{\min_{c \in \{b,g\}}(\min_{y \in \pi(e)} I_c(y))}{c_{\text{err},g,b} A_{mc}} \right)
+                    \]
+          \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item \textbf{High accuracy:} 94.6% mAP for object detection.
+    \item \textbf{Real-time performance:} 0.55s total processing time.
+    \item \textbf{Robust dehazing:} Handles color distortion and scattering.
+\end{itemize}
+
+\paragraph{Disadvantages:}
+\begin{itemize}
+    \item \textbf{Prior dependency:} Restoration fails if transmission maps are inaccurate.
+    \item \textbf{Limited depth testing:} Primarily validated at shallow depths (\textless5m).
+\end{itemize}

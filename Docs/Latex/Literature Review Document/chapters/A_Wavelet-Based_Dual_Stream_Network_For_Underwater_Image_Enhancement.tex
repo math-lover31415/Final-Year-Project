@@ -1,0 +1,30 @@
+\subsection{\textit{A Wavelet-Based Dual
+        Stream Network For Underwater Image Enhancement\cite{Ma_2022}}}
+
+\paragraph{Abstract:}
+This method enhances underwater images by applying a wavelet-based decomposition that separates structural and detail components. A dual-stream neural network then restores color and texture independently, and fuses them to generate high-quality results. The use of multi-color space fusion and GAN-based training improves realism and visual clarity.
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item  \textbf{Wavelet Decomposition (DWT):} Splits the image into low- and high-frequency sub-bands (ILL, ILH, IHL, IHH).
+    \item \textbf{Dual-Stream Network:}
+          \begin{itemize}
+              \item \textbf{Multi-color space fusion network:}  Enhances low-frequency ILL using color correction and multi-color space fusion.
+              \item \textbf{Detail Branch:} Enhances high-frequency ILH, IHL, IHH sub-bands to recover texture and edges.
+          \end{itemize}
+    \item \textbf{Reconstruction (IDWT):} Merges enhanced sub-bands to produce the final output.
+    \item \textbf{Training:} Uses combined L1 + MSSIM (structure), detail loss, and adversarial loss.
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item Works well even on real-world underwater images.
+    \item GAN improves visual realism.
+
+\end{itemize}
+
+\paragraph{Disadvantages:}
+\begin{itemize}
+    \item Computationally heavier due to dual networks and GAN.
+    \item Requires a large dataset for robust training.
+\end{itemize}

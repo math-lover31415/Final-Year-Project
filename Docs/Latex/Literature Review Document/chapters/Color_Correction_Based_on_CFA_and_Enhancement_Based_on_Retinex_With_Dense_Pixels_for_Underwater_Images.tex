@@ -1,0 +1,66 @@
+\subsection{\textit{Color Correction Based on CFA and Enhancement
+        Based on Retinex With Dense Pixels for
+        Underwater Images\cite{Li_2020}}}
+
+\paragraph{Abstract:}
+This paper proposes a novel method combining color correction based on the Color Filter Array (CFA) characteristics and illumination enhancement using Retinex theory with dense pixel paths. The approach involves compensating the red channel using green and blue channels, applying white balance, enhancing illumination via a modified McCann Retinex algorithm with dense sampling, and performing a piecewise linear adaptive histogram transformation. Experimental results demonstrate superior visual quality and improved objective metrics compared to existing state-of-the-art methods.
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item Red channel compensation based on CFA
+          \begin{itemize}
+              \item Uses the dependency between channels introduced by CFA interpolation.
+              \item The red channel is compensated using a weighted combination of local averages from green and blue channels.
+          \end{itemize}
+
+    \item Applies standard white balancing
+    \item Retinex with dense pixels
+          \begin{itemize}
+              \item Spiral path estimation is sparse and directionally biased.
+              \item Uses eight directional paths (clockwise and counterclockwise from diagonals) to uniformly sample the image.
+              \item Yields better global illumination estimation and local detail enhancement.
+          \end{itemize}
+    \item Adaptive Histogram Transformation
+          \begin{itemize}
+              \item Gray-World theory; average intensity for a balanced image should be ~128 per channel.
+              \item Piecewise linear transformation shifts channel means into [100, 140] range.
+              \item Compared to gamma correction and global histogram stretching, it shows improved perceptual quality.
+          \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item \textbf{No Training Required} \\
+          Unlike deep learning models, this method is unsupervised and model-free.
+
+    \item \textbf{Red Channel Restoration from CFA Dependency} \\
+          Utilizes inherent sensor properties for more accurate color correction.
+
+    \item \textbf{Enhanced Illumination Estimation} \\
+          Dense Retinex paths provide uniform enhancement across the image, including darker corners.
+
+    \item \textbf{Robust to Various Underwater Conditions} \\
+          Tested across multiple datasets and turbidity levels with consistent performance.
+
+    \item \textbf{Superior Quantitative Metrics} \\
+          Outperforms baselines in Entropy, NIQE, IL-NIQE, UIQM, and UCIQE.
+\end{itemize}
+
+\paragraph{Disadvantages}
+
+\begin{itemize}
+    \item \textbf{Fixed Parameters} \\
+          Certain constants like $\alpha$ and $\varepsilon$ are manually tuned and not adaptive to image content.
+
+    \item \textbf{No Learning or Semantic Understanding} \\
+          Cannot distinguish object-level features or adapt to scene semantics (unlike GAN-based methods).
+
+    \item \textbf{Computational Overhead from Dense Paths} \\
+          Dense pixel processing can be more computationally expensive compared to sparse methods.
+
+    \item \textbf{Not Optimized for Real-Time Use on Low-Power Devices} \\
+          Although efficient, the method may still be heavy for embedded or low-resource systems without further optimization.
+
+    \item \textbf{Limited Evaluation on Extreme Scenarios} \\
+          While robust, it may underperform in highly turbid or low-visibility waters compared to some deep learning models.
+\end{itemize}

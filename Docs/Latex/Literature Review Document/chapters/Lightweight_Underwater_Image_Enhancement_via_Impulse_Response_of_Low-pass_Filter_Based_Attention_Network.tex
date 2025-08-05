@@ -1,0 +1,67 @@
+\subsection{\textit{Lightweight Underwater Image Enhancement via Impulse Response of Low-pass Filter Based Attention Network}}
+
+\paragraph{Abstract:}
+This paper proposes an \textbf{improved Shallow-UWnet model} for underwater image enhancement targeting resource-constrained underwater robots:
+\begin{enumerate}
+    \item \textbf{Skip Connection Enhancement:} Incorporates raw underwater images and impulse response of low-pass filter (LPF) to solve vanishing gradient problems.
+    \item \textbf{Attention Integration:} Integrates parameter-free SimAM attention modules into each Convolution Block for enhanced visual quality.
+    \item \textbf{Lightweight Design:} Achieves comparable performance with \textbf{216,000 parameters} (fewer than original Shallow-UWnet) and \textbf{0.05\,s testing time} per image.
+\end{enumerate}
+Demonstrates superior results with \textbf{PSNR = 27.87}, \textbf{SSIM = 0.84}, and \textbf{UIQM = 2.96} on the EUVP-Dark dataset.
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item \textbf{Architecture Enhancement:}
+          \begin{itemize}
+              \item Modifies Shallow-UWnet by adding skip connections that concatenate raw underwater images with LPF impulse responses.
+              \item Reduces ConvBlock features from 61 to 58 to accommodate additional input channels.
+              \item Maintains three successive ConvBlocks with ReLU activation and dropout regularization.
+          \end{itemize}
+
+    \item \textbf{Low-Pass Filter Integration:}
+          \begin{itemize}
+              \item Evaluates four LPF variants: Sparsity-based LPF (SLPF), Direct LPF (DLPF), Gaussian LPF (GLPF), and Butterworth LPF (BLPF).
+              \item \emph{SLPF formulation:} Power spectrum sparsity
+                    \[
+                        S = \frac{P_a}{P_h + P_v}, \quad \gamma = \lambda S.
+                    \]
+              \item \emph{Frequency response:}
+                    \[
+                        H_S(\omega_1,\omega_2)=
+                        \begin{cases}
+                            1, & P(\omega_1,\omega_2)\le\gamma, \\
+                            0, & \text{otherwise}.
+                        \end{cases}
+                    \]
+          \end{itemize}
+
+    \item \textbf{SimAM Attention Module:}
+          \begin{itemize}
+              \item Parameter-free 3D attention mechanism based on energy theory.
+              \item \emph{Energy calculation:}
+                    \[
+                        \varepsilon_T = \frac{4(\rho^2 + \alpha)}{(T - \eta)^2 + 2\rho^2 + 2\alpha},
+                    \]
+                    where $\eta = \tfrac{1}{N}\sum_i y_i$ and $\rho^2 = \tfrac{1}{N}\sum_i(y_i-\eta)^2$.
+              \item \emph{Attention output:}
+                    \[
+                        \widetilde{Y} = \sigma\!\bigl(\tfrac{1}{E}\bigr)\odot Y.
+                    \]
+          \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item \textbf{Lightweight architecture:} 216,000 parameters vs.\ 219,456 in original Shallow-UWnet.
+    \item \textbf{Fast processing:} 0.05\,s per image enabling real-time enhancement.
+    \item \textbf{Robust performance:} Comparable or superior PSNR/SSIM/UIQM across EUVP-Dark, UFO-120, and UIEB.
+    \item \textbf{Noise reduction:} Better distinguishes image content from noise.
+\end{itemize}
+
+\paragraph{Disadvantages:}
+\begin{itemize}
+    \item \textbf{Marginal PSNR improvement:} Only slight gain over baseline (27.87 vs.\ 27.86 on EUVP-Dark).
+    \item \textbf{Color artifacts:} Overcontrast with reddish hue in heavily hazy regions persists.
+    \item \textbf{Dataset dependency:} Trained mainly on EUVP, may generalize poorly to other conditions.
+    \item \textbf{LPF variant selection:} No clear guidance on optimal filter choice; benefits similar across variants.
+\end{itemize}
