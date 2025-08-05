@@ -1,0 +1,60 @@
+\subsection{\textit{Blind Underwater Image Restoration using Co-Operational Regressor Networks}\cite{Devecioglu_2024}}
+
+\paragraph{Abstract:}
+This paper proposes \textbf{Co-Operational Regressor Networks (CoRe-Nets)} which combine two cooperating networks: the Apprentice Regressor (AR) for image restoration, and the Master Regressor (MR) that estimates image quality (PSNR) and provides feedback to the AR
+
+\paragraph{Methodology:}
+\begin{itemize}
+    \item Apprentice Regressor(AR)
+          \begin{itemize}
+              \item A U-Net like structure trained to restore underwater images.
+              \item Image quality is measured by PSNR (Peak Signal-to-Noise Ratio).
+              \item AR is trained to minimize a loss composed of:
+                    \begin{itemize}
+                        \item PSNR-based feedback from MR
+                        \item Actual PSNR compared to ground truth
+                        \item Focal Frequency Loss (FFL) used to align patterns in the frequency domain and optimize image restoration by focusing on major spectral components
+                    \end{itemize}
+          \end{itemize}
+
+    \item Medium Transmission Based Decoder
+          \begin{itemize}
+              \item Use a reverse medium transmission map as an attention mask
+                    \begin{itemize}
+                        \item Medium transmission T(x) represents how much light from the scene at pixel x reaches the camera after being attenuated and scattered in water.
+                        \item It can be measured mathematically based on scene radiance and background light
+                        \item Reverse Medium Transformation (RMT) is measured as RMT(x) = 1-T(x) and represents how much degradation is caused in the image due to water
+                    \end{itemize}
+              \item Combine encoder features with the RMT map to emphasize degraded areas
+              \item Reconstruct output via resifual enhancement and upsampling layers
+          \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+    \item \textbf{High performance} \\
+          Has 24.54 dB PSNR
+
+    \item \textbf{Low Complexity} \\
+          Has only 7.2 milliom parameters
+
+    \item \textbf{Real Time capable} \\
+           The processing time to restore a 256x256x3 image takes around 6.1 msec for a single CPU implementation
+
+\end{itemize}
+
+\paragraph{Disadvantages}
+
+\begin{itemize}
+    \item \textbf{No Physics-Guided Constraints} \\
+          CoreNets are purely data driven and have no physics guided constraints
+
+    \item \textbf{Feedback Loop} \\
+          Cooperative setup can create interdependence and non linearity in training, making it hard to tune convergence behaviour
+
+    \item \textbf{Dataset Diversity} \\
+          The model was trained and tested on the LSUI dataset, and not on other challenging underwater datasets like UIEB, EUVP, or in-the-wild underwater conditions, limiting the paper's claims of robustness.
+
+    \item \textbf{Lack of Real Ground Truth for Transmission Maps} \\
+          Medium transmission map is estimated based on heuristics and may not capture true degradation levels
+\end{itemize}
