@@ -1,0 +1,65 @@
+\subsection{\textit{Underwater Image Enhancement Based on Histogram-Equalization Approximation Using Physics-Based Dichromatic Modeling\cite{Peng_2022}}}
+
+\paragraph{Abstract:}
+This paper proposes a statistical method combining Histogram Equalization(HE) with Physics based Dichromatic Modelling (PDM). HE removes contrast and PDM recovers image colors
+
+\paragraph{Methodology:}
+\begin{itemize}
+      \item \textbf{Histogram Equalization}
+            \begin{itemize}
+                  \item Histogram Equalization uses cumulative density of image to compute:
+                  \[
+                    T_f = \left\lfloor (L - 1)c_l + 0.5 \right\rfloor
+                  \]
+                Here, $L$ is the largest intensity in the image and $c_l$ is the cumulative density measured based on normalized pixel intensity $p_l$ as follows:
+                  \[
+                    c_l = \sum_{i=0}^{l} p_l
+                  \]
+            \end{itemize}
+
+      \item \textbf{Physics based Dichromatic Modelling}
+            \begin{itemize}
+                  \item The doal is to find True Image based on the following equation
+                  \[
+                    I_c(x) = J_c(x)t(x) + B_c(1-t(x))
+                  \]
+                  \item Here, $I_c$ is the observed image, $J_c$ is the original image, $B_c$ is the background light, and t is the transmission light.
+                  \item t(x) is estimated as follows:
+                  \[
+                    t(x) = 1 - \min_{y \in \Omega(x)} \left( \min_{c \in \{r,g,b\}} \frac{I_c(y)}{B_c} \right)
+                  \]
+                  \item $J_c$ is calculated based on the above equations
+            \end{itemize}
+
+      \item \textbf{Combined method}
+            \begin{itemize}
+                  \item HE and PDm are represented as matrix equations
+                  \item For PDE, a gaussian distribution is estimated
+                  \item The combined equation is minimized using convex optimization with CVX library
+            \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+      \item \textbf{Physics Aware} \\
+            The methodology is based on physics equations and can lead to better realism.
+
+      \item \textbf{Global Optimum} \\
+            CVX method ensures global optimum and numerical stability
+
+      \item \textbf{Combined method} \\
+            The combined equation accounts for both color restoration and color enhancement
+\end{itemize}
+
+\paragraph{Disadvantages:}
+
+\begin{itemize}
+      \item \textbf{Computational Complexity} \\
+            Computational cost: takes approximately 4.8s / image
+
+      \item \textbf{Requires Careful Tuning} \\
+            Approximates PDM as Gaussian (Assumption may not hold)
+
+      \item \textbf{Execution Time} \\
+            Lacks adaptability/generalisation.
+\end{itemize}
