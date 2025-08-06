@@ -1,0 +1,56 @@
+\subsection{\textit{IGFU: A Hybrid Underwater Image Enhancement Approach Combining Adaptive GWA, FFA-Net With USM\cite{Yuan_2025}}}
+
+\paragraph{Abstract:}
+This paper proposes a three-stage pipeline that combines an Improved Grey World Algorithm (IGWA), Feature Fusion Attention Network (FFA-Net) architecture, and Unsharp Masking (USM) to create a three-stage pipeline for enhancing underwater images.
+
+\paragraph{Methodology:}
+\begin{itemize}
+      \item \textbf{Improved GWA}
+            \begin{itemize}
+                  \item GWA works on the principle that the average color in an image is gray. The colors are normalized between 0 to 1 and scaled up based on the mean gray value.
+                  \item GWA can lead to overcorrection and cause the image to be too red.
+                  \item Improved GWA makes minute changes based on channel-specific statistics alongside iterative retuning to prevent overcorrection.
+            \end{itemize}
+
+      \item \textbf{FFA-Net}
+            \begin{itemize}
+                  \item FFA-Net stands for Feature Fusion Attention Network.
+                  \item It uses a deep learning model for dehazing the image.
+                  \item The model has a channel and pixel attention module.
+            \end{itemize}
+
+      \item \textbf{USM}
+            \begin{itemize}
+                  \item Unsharp masking enhances details in the image.
+                  \item It applies a Gaussian blur and subtracts the blurred image from the original image to obtain edges.
+                  \item The edges are then added back to the original image.
+            \end{itemize}
+\end{itemize}
+
+\paragraph{Advantages:}
+\begin{itemize}
+      \item \textbf{Hybrid Design} \\
+            Both traditional and deep learning methods are used.
+
+      \item \textbf{Adaptive Correction} \\
+            Improved GWA algorithm corrects the image adaptively based on channel-specific statistics.
+
+      \item \textbf{Component Modularity} \\
+            Each component is a separate module and focuses on a different aspect of image enhancement.
+\end{itemize}
+
+\paragraph{Disadvantages:}
+
+\begin{itemize}
+      \item \textbf{Computational Complexity} \\
+            High computational overhead due to multi-stage pipeline.
+
+      \item \textbf{Requires Careful Tuning} \\
+            Thresholds and coefficients are empirically determined.
+
+      \item \textbf{Execution Time} \\
+            Improved GWA requires iterative processing.
+
+      \item \textbf{Artificial Edges} \\
+            USM may amplify noise and introduce artificial edges.
+\end{itemize}
